@@ -1,26 +1,25 @@
 # Project Roadmap
 
-## Phase 1 - Repository Foundation
-- [x] Create repository
-- [x] Improve README
-- [x] Add project license
-- [x] Add contribution guidelines
-- [x] Add code of conduct
-- [x] Initialize changelog
+## Phase 1
 
-## Phase 2 - Documentation
-- [ ] Add architecture documentation
-- [ ] Add usage examples
-- [ ] Create project wiki
-- [ ] Improve developer documentation
+- Complete ERC-20 token implementation
+- Improve project documentation
+- Prepare deployment configuration
 
-## Phase 3 - Development
-- [ ] Implement core features
-- [ ] Add automated testing
-- [ ] Improve project structure
-- [ ] Optimize performance
+## Phase 2
 
-## Future Goals
-- Expand project functionality
-- Encourage community contributions
-- Maintain comprehensive documentation
+- Deploy to Base network
+- Verify smart contracts
+- Publish contract information
+
+## Phase 3
+
+- Expand ecosystem utilities
+- Improve testing coverage
+- Optimize gas efficiency
+
+## Future
+
+- Governance features
+- Community engagement
+- Additional smart contract modules
