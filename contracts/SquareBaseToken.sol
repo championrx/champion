@@ -7,13 +7,12 @@ import "@openzeppelin/contracts@4.9.6/access/Ownable.sol";
 
 /// @title Square Base Token
 /// @notice ERC-20 token for the Base ecosystem.
-/// @dev Mints the total supply to the deployer during deployment.
+/// @dev Includes burn functionality and ownership control.
 contract SquareBaseToken is ERC20, ERC20Burnable, Ownable {
 
     /// @notice Creates the token and mints the initial supply.
     constructor()
         ERC20("SQUARE BASE", "SBASE")
-        Ownable(msg.sender)
     {
         _mint(msg.sender, 88_000_000 * 10 ** decimals());
     }
