@@ -1,55 +1,29 @@
 const { expect } = require("chai");
+const { ethers } = require("hardhat");
 
 describe("SquareBaseToken", function () {
+  let token;
+  let owner;
 
-  describe("Token basics", function () {
+  beforeEach(async function () {
+    [owner] = await ethers.getSigners();
 
-    it("should have correct initial supply", async function () {
-      const initialSupply = 88_000_000;
-
-      expect(initialSupply).to.equal(88000000);
-    });
-
+    const Token = await ethers.getContractFactory("SquareBaseToken");
+    token = await Token.deploy();
+    await token.waitForDeployment();
   });
 
-
-  describe("Ownership", function () {
-
-    it("should define an owner role", async function () {
-      const ownerExists = true;
-
-      expect(ownerExists).to.equal(true);
-    });
-
+  it("should deploy successfully", async function () {
+    expect(await token.getAddress()).to.not.equal(
+      "0x0000000000000000000000000000000000000000"
+    );
   });
 
-
-  describe("Burn functionality", function () {
-
-    it("should support token burning", async function () {
-      const burnAmount = 1000;
-
-      expect(burnAmount).to.equal(1000);
-    });
-
+  it("should have the correct name", async function () {
+    expect(await token.name()).to.equal("SQUARE BASE");
   });
 
-
-  describe("Pause functionality", function () {
-
-    it("should support pausing transfers", async function () {
-      const paused = true;
-
-      expect(paused).to.equal(true);
-    });
-
-
-    it("should support unpausing transfers", async function () {
-      const paused = false;
-
-      expect(paused).to.equal(false);
-    });
-
+  it("should have the correct symbol", async function () {
+    expect(await token.symbol()).to.equal("SBASE");
   });
-
 });
