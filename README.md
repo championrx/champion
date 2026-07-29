@@ -65,3 +65,36 @@ Champion is a smart contract project built with Solidity for the Base ecosystem.
 - Hardhat
 - OpenZeppelin Contracts
 - Base Network
+
+## Deploy to Base Sepolia
+
+### Prerequisites
+
+- Node.js installed
+- Hardhat installed
+- Base Sepolia RPC endpoint
+- Wallet with test ETH
+
+### Setup
+
+1. Copy `.env.example` to `.env`
+2. Add your private key to `.env`
+3. Add your Base Sepolia RPC URL to `.env`
+
+### Compile
+
+```bash
+npx hardhat compile
+```
+
+### Test
+
+```bash
+npx hardhat test
+```
+
+### Deploy
+
+```bash
+npx hardhat run scripts/deploy.js --network baseSepolia
+```
