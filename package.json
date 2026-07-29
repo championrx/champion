@@ -1,0 +1,11 @@
+{
+  "name": "champion-token",
+  "version": "1.0.0",
+  "description": "Champion ERC-20 smart contract project",
+  "license": "MIT",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "node scripts/deploy.js"
+  }
+}
