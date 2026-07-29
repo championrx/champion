@@ -2,7 +2,12 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 describe("SquareBaseToken", function () {
-  let token;
+  let token;it("should mint the initial supply to the deployer", async function () {
+  const totalSupply = await token.totalSupply();
+  const ownerBalance = await token.balanceOf(owner.address);
+
+  expect(totalSupply).to.equal(ownerBalance);
+});
   let owner;
 
   beforeEach(async function () {
