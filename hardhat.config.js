@@ -1,4 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
+
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
+const BASE_SEPOLIA_RPC_URL = process.env.BASE_SEPOLIA_RPC_URL || "";
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -14,5 +18,10 @@ module.exports = {
 
   networks: {
     hardhat: {},
+
+    baseSepolia: {
+      url: BASE_SEPOLIA_RPC_URL,
+      accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
+    },
   },
 };
