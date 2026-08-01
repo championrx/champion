@@ -1,6 +1,7 @@
 {
   "name": "champion-token",
   "version": "1.0.0",
+  "type": "module",
   "description": "Champion ERC-20 smart contract project",
   "license": "MIT",
   "scripts": {
@@ -11,5 +12,9 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.6",
     "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.15",
+    "hardhat": "^3.12.0"
   }
 }
