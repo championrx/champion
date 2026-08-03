@@ -107,3 +107,13 @@ describe("RXCToken", function () {
       ethers.parseEther("99999500")
     );
   });
+  it("Should have fixed initial total supply", async function () {
+    const RXCToken = await ethers.getContractFactory("RXCToken");
+    const token = await RXCToken.deploy();
+
+    const totalSupply = await token.totalSupply();
+
+    expect(totalSupply).to.equal(
+      ethers.parseEther("100000000")
+    );
+  });
