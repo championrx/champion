@@ -87,3 +87,23 @@ describe("RXCToken", function () {
       token.connect(user).pause()
     ).to.be.reverted;
   });
+  it("Should transfer tokens between accounts", async function () {
+    const [owner, receiver] = await ethers.getSigners();
+
+    const RXCToken = await ethers.getContractFactory("RXCToken");
+    const token = await RXCToken.deploy();
+
+    const amount = ethers.parseEther("500");
+
+    await token.transfer(receiver.address, amount);
+
+    expect(
+      await token.balanceOf(receiver.address)
+    ).to.equal(amount);
+
+    expect(
+      await token.balanceOf(owner.address)
+    ).to.equal(
+      ethers.parseEther("99999500")
+    );
+  });
