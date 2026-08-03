@@ -33,3 +33,36 @@ describe("RXCToken", function () {
       ethers.parseEther("99999000")
     );
   });
+  it("Should pause and block transfers", async function () {
+    const [owner, user] = await ethers.getSigners();
+
+    const RXCToken = await ethers.getContractFactory("RXCToken");
+    const token = await RXCToken.deploy();
+
+    await token.pause();
+
+    await expect(
+      token.transfer(user.address, ethers.parseEther("100"))
+    ).to.be.reverted;
+  });
+
+  it("Should allow transfers after unpause", async function () {
+    const [owner, user] = await ethers.getSigners();
+
+    const RXCToken = await ethers.getContractFactory("RXCToken");
+    const token = await RXCToken.deploy();
+
+    await token.pause();
+    await token.unpause();
+
+    await token.transfer(
+      user.address,
+      ethers.parseEther("100")
+    );
+
+    expect(
+      await token.balanceOf(user.address)
+    ).to.equal(
+      ethers.parseEther("100")
+    );
+  });
