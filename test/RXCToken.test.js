@@ -66,3 +66,24 @@ describe("RXCToken", function () {
       ethers.parseEther("100")
     );
   });
+  it("Should set deployer as owner", async function () {
+    const [owner] = await ethers.getSigners();
+
+    const RXCToken = await ethers.getContractFactory("RXCToken");
+    const token = await RXCToken.deploy();
+
+    expect(
+      await token.owner()
+    ).to.equal(owner.address);
+  });
+
+  it("Should prevent non-owner from pausing", async function () {
+    const [owner, user] = await ethers.getSigners();
+
+    const RXCToken = await ethers.getContractFactory("RXCToken");
+    const token = await RXCToken.deploy();
+
+    await expect(
+      token.connect(user).pause()
+    ).to.be.reverted;
+  });
