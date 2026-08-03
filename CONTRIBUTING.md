@@ -1,25 +1,14 @@
-# Contributing Guide
-
-Thank you for your interest in contributing to this project.
+# Contribution Guide 
 
 ## How to Contribute
 
-1. Fork the repository.
-2. Create a new feature branch.
-3. Commit your changes with clear commit messages.
-4. Submit a pull request.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests before submitting
+5. Open a pull request
 
-## Coding Guidelines
-
-- Write clean and readable code.
-- Keep commits focused on a single change.
-- Update documentation when needed.
-
-## Reporting Issues
-
-Please include:
-
-- A clear description
-- Steps to reproduce
-- Expected behavior
-- Actual behavior
+## Development Rules
+- Keep commits clear and descriptive
+- Add tests for new features
+- Follow Solidity best practices
