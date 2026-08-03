@@ -5,3 +5,11 @@ build/
 .vscode/
 .idea/
 *.log
+
+# Hardhat build output
+artifacts/
+cache/
+
+# Stray files
+npm
+npx
